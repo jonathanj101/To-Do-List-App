@@ -4,6 +4,7 @@ let userInput = document.querySelector("#user-input")
 let unordrd = document.querySelector("#main-lists__container")
 let listsItem = document.querySelector("#lists-item")
 
+
 /* EVENT LISTENER FOR USER INPUT*/
 userInput.addEventListener('keydown', (event) => {
     if (event.keyCode === 13) {
@@ -26,11 +27,17 @@ userInput.addEventListener('keydown', (event) => {
         spanInputValue.appendChild(spnUserText)
         listBtnItem.appendChild(btnRemove)
 
+        if (userInput.value === '') {
+            alert('Empty Task, no Reminder!')
+        } else {
+            unordrd.insertAdjacentElement("afterbegin", listItem)
+            listItem.insertAdjacentElement("beforeend", btnRemove)
+            listItem.insertAdjacentElement('afterbegin', spanInputValue)
+            btnRemove.innerHTML = '&times;'
+            userInput.value = ''
 
-        unordrd.insertAdjacentElement("afterbegin", listItem)
-        listItem.insertAdjacentElement("beforeend", btnRemove)
-        listItem.insertAdjacentElement('afterbegin', spanInputValue)
-        btnRemove.innerHTML = '&times;'
+        }
+
 
         //console.log(spnUserText, spanInputValue, spanRemove)
     }
@@ -39,41 +46,16 @@ userInput.addEventListener('keydown', (event) => {
 
 /* FUNCTION TO DELETE TASK*/
 
+function deleteTast() {
+    unordrd.removeChild(listsItem)
+}
 
-userInput.addEventListener('keyup', (event) => {
+userInput.addEventListener('keyup', () => {
     if (event.keyCode === 13) {
-        let listItems = document.querySelectorAll('li')
-        let btnRemove = document.getElementsByTagName('button')
-        let spanInputValue = document.createElement('span')
-        let items = []
-
-        for (let i = 0; i < listItems.length; i++) {
-            items.push(listItems[i])
-        }
-        console.log(items)
-        console.log(listItems[0])
-
-        /*
-        let item;
-        for (let j = 0; j < items.length; j++) {
-            item += items[j].innerHTML
-        }
-        console.log(item)
-        */
-        //console.log(unordrd)
-        //console.log(listItems)
-        /*
-        for (let i = 0; i < listItems.length; i++) {
-            items.push(listItems[i].innerHTML)
-        }
-        console.log(items)
-        spanRemove.addEventListener('click', () => {
-
-        })*/
-
+        let btnRemove = document.querySelector("#remove")
+        btnRemove.addEventListener('click', deleteTast)
     }
 })
-
 
 /*
 
