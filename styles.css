@@ -62,32 +62,25 @@ li {
   display: flex;
   justify-content: space-between;
   font-size: 1.75rem;
+  height: auto;
   margin: auto;
   list-style: none;
-}
-
-/* SPAN 
-    INPUT VALUE
-    REMOVE
-*/
-
-#inputValue {
+  margin-bottom: 5px;
   width: 100%;
   border: 2px solid green;
 }
 
 #remove {
+  color: red;
+  font-size: 1.5rem;
   border: 2px solid red;
   background-color: transparent;
-  padding: 0 5px 0 2px;
-  margin-left: 5px;
+  outline: none;
 }
 
 #remove:hover {
   border: 2px solid red;
   background-color: rgb(255, 4, 4);
   color: white;
-  padding-right: 5px;
-  margin-left: 5px;
   cursor: pointer;
 }
