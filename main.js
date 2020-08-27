@@ -3,6 +3,8 @@
 let userInput = document.querySelector("#user-input")
 let unordrd = document.querySelector("#main-lists__container")
 let listsItem = document.querySelector("#lists-item")
+let btnRemove = document.querySelector('#remove')
+
 
 
 /* EVENT LISTENER FOR USER INPUT*/
@@ -33,40 +35,27 @@ userInput.addEventListener('keydown', (event) => {
             unordrd.insertAdjacentElement("afterbegin", listItem)
             listItem.insertAdjacentElement("beforeend", btnRemove)
             listItem.insertAdjacentElement('afterbegin', spanInputValue)
+
             btnRemove.innerHTML = '&times;'
             userInput.value = ''
 
+            /* delete task*/
+
+            btnRemove.addEventListener('click', (e) => {
+                e.target.parentElement.remove()
+            })
+            btnRemove.addEventListener('mouseover', () => {
+                if (spanInputValue.id === "inputValue") {
+                    spanInputValue.style.textDecoration = 'line-through'
+                }
+            })
+            btnRemove.addEventListener('mouseout', () => {
+                if (spanInputValue.id === 'inputValue') {
+                    spanInputValue.style.textDecoration = 'none'
+                }
+            })
+
         }
-
-
-        //console.log(spnUserText, spanInputValue, spanRemove)
     }
-    //console.log(`keyCode = ${event.keyCode} code = ${event.code} `)
+
 })
-
-/* FUNCTION TO DELETE TASK*/
-
-function deleteTast() {
-    unordrd.removeChild(listsItem)
-}
-
-userInput.addEventListener('keyup', () => {
-    if (event.keyCode === 13) {
-        let btnRemove = document.querySelector("#remove")
-        btnRemove.addEventListener('click', deleteTast)
-    }
-})
-
-/*
-
-let userInput = document.querySelector("#user-input")
-let listContainer = document.querySelector("#main-lists__container")
-
-userInput.addEventListener('keydown', (event) => {
-    note:: keycode is each keys on keyboard with its corresponding number. Enter === 13
-    if (event.keyCode === 13) {
-        listContainer.innerHTML = '<li>' + userInput.value + '</li>'
-    }
-    console.log(`keyCode = ${ event.keyCode } code = ${ event.code } `)
-})
-*/
