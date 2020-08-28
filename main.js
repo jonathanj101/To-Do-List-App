@@ -45,16 +45,6 @@ userInput.addEventListener('keydown', () => {
             btnRemove.innerHTML = '&times;'
             userInput.value = ''
         }
-        let listsItem = document.querySelectorAll("li")
-
-        for (let i = 0; i < listsItem.length; i++) {
-            if (listsItem.className === userInput.value) {
-                let idk = userTasks.pop(listsItem)
-                console.log(idk)
-            } else {
-                userTasks.push(listsItem)
-            }
-        }
 
 
         console.log(userTasks)
@@ -67,6 +57,16 @@ userInput.addEventListener('keydown', () => {
         let day = date.getDay()
         let year = date.getFullYear()
         let minutes = date.getMinutes()
+        let listsItem = document.querySelectorAll("li")
+
+        for (let i = 0; i < listsItem.length; i++) {
+            if (listsItem.className === userInput.value) {
+                let idk = userTasks.pop(listsItem)
+                console.log(idk)
+            } else {
+                userTasks.push(listsItem)
+            }
+        }
 
         let itemDetail = localStorage.setItem('userTasks', JSON.stringify({ task: userTasks, id: (`${month}/${day}/${year} ${minutes}`) }))
         let getItemDetail = localStorage.getItem('userTasks')
