@@ -10,6 +10,7 @@ body {
   border: 2px solid red;
   width: 50%;
   margin: 5% auto;
+  background-color: red;
 }
 
 /* title container and title */
