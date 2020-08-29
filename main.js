@@ -1,7 +1,5 @@
 /* GLOBAL VARIABLES */
 
-let userTasks = []
-
 
 let userInput = document.querySelector("#user-input")
 let unordrd = document.querySelector("#main-lists__container")
@@ -11,6 +9,7 @@ let unordrd = document.querySelector("#main-lists__container")
 
 
 userInput.addEventListener('keydown', () => {
+    let userTasks = []
     if (event.keyCode === 13) {
         //creating element at user's input 'enter'
 
@@ -18,6 +17,7 @@ userInput.addEventListener('keydown', () => {
         let listBtnItem = document.createElement('li')
         let spanInputValue = document.createElement('span')
         let btnRemove = document.createElement('button')
+
 
         listItem.id = 'lists-item'
         listItem.className = userInput.value
@@ -44,33 +44,34 @@ userInput.addEventListener('keydown', () => {
             listItem.insertAdjacentElement('afterbegin', spanInputValue)
             btnRemove.innerHTML = '&times;'
             userInput.value = ''
+
         }
 
+        const listsItem = document.querySelectorAll('li')
+
+        listsItem.forEach(function (item) {
+            userTasks.push(item)
+        })
 
         console.log(userTasks)
         console.log(listsItem)
         console.log(userTasks)
         /* local storage*/
+
         let date = new Date()
 
         let month = date.getMonth() + 1
         let day = date.getDay()
         let year = date.getFullYear()
         let minutes = date.getMinutes()
-        let listsItem = document.querySelectorAll("li")
 
-        for (let i = 0; i < listsItem.length; i++) {
-            if (listsItem.className === userInput.value) {
-                let idk = userTasks.pop(listsItem)
-                console.log(idk)
-            } else {
-                userTasks.push(listsItem)
-            }
-        }
+        const itemDetail = JSON.stringify({ id: `${month}/${day}/${year} ${minutes}` })
 
-        let itemDetail = localStorage.setItem('userTasks', JSON.stringify({ task: userTasks, id: (`${month}/${day}/${year} ${minutes}`) }))
-        let getItemDetail = localStorage.getItem('userTasks')
-        const item = JSON.parse(getItemDetail)
+        const parse = JSON.parse(itemDetail)
+
+        localStorage.setItem("userTask", parse)
+
+
 
     }
 
