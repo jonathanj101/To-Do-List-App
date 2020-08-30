@@ -50,6 +50,7 @@ userInput.addEventListener('keydown', () => {
         const listsItem = document.querySelectorAll('li')
 
         listsItem.forEach(function (item) {
+
             userTasks.push(item)
         })
 
@@ -61,15 +62,31 @@ userInput.addEventListener('keydown', () => {
         let date = new Date()
 
         let month = date.getMonth() + 1
-        let day = date.getDay()
+        let day = date.getDate() + 1
         let year = date.getFullYear()
         let minutes = date.getMinutes()
 
-        const itemDetail = JSON.stringify({ id: `${month}/${day}/${year} ${minutes}` })
+        const dateId = {
+            id: `${month}/${day}/${year} ${minutes}`
+        }
 
-        const parse = JSON.parse(itemDetail)
 
-        localStorage.setItem("userTask", parse)
+
+        // localStorage.setItem('Tasks', JSON.stringify(userTasks))
+        //userTasks.push(dateId)
+
+        //const item = localStorage.setItem('Tasks', JSON.stringify(userTasks))
+        //const dataParsed = JSON.parse(item)
+
+        //localStorage.getItem('Tasks')
+
+        //console.log(userTasks)
+
+        // const parse = JSON.parse(returnValue)
+
+        // localStorage.setItem("tasks", parse)
+        // localStorage.getItem(itemDetail)
+
 
 
 
