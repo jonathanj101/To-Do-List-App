@@ -10,13 +10,13 @@ let unordrd = document.querySelector("#main-lists__container")
 userInput.addEventListener('keydown', () => {
     if (event.keyCode === 13) {
 
-        //creating element at user's input 'enter'
+        //creating element at user's keyboard 'enter'
 
         let listItem = document.createElement('li')
         let listBtnItem = document.createElement('li')
         let spanInputValue = document.createElement('span')
         let btnRemove = document.createElement('button')
-
+        // adding li elements' id
 
         listItem.id = 'lists-item'
         listItem.className = userInput.value
@@ -24,16 +24,18 @@ userInput.addEventListener('keydown', () => {
         listBtnItem.id = 'lists-item'
         spanInputValue.id = 'inputValue'
 
-
+        // getting user's input
         let spnUserText = document.createTextNode(userInput.value)
 
 
-
+        // appending user text to span
         spanInputValue.appendChild(spnUserText)
+        // appending button to li element
         listBtnItem.appendChild(btnRemove)
 
+        // if user input is empty, not to add it to the list
         if (userInput.value === '') {
-            // if user input is empty, not to add it to the list
+
             alert('Empty Task, no Reminder!')
         } else {
             // adding task to the ul list
@@ -44,6 +46,8 @@ userInput.addEventListener('keydown', () => {
             userInput.value = ''
 
         }
+
+
         // LOCAL STORAGE
         let userTask = []
         let date = new Date()
