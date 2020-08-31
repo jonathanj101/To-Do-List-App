@@ -68,16 +68,27 @@ userInput.addEventListener('keydown', () => {
             userTask.push(item.textContent, taskId)
 
         })
-        if (localStorage.getItem('Tasks') == null) {
-            localStorage.setItem('Tasks', '[]')
-        }
-        let old_data = JSON.parse(localStorage.getItem('Tasks'))
-        old_data.push(userTask)
-        localStorage.setItem('Tasks', JSON.stringify(old_data))
+        let task;
 
-        if (listsItem == '') {
-            listsItem.innerHTML = spanInputValue
-        }
+        localStorage.setItem('Tasks', JSON.stringify(userTask))
+        task = JSON.parse(localStorage.getItem('Tasks'))
+
+        console.log(typeof (task))
+
+        // if (localStorage.getItem('Tasks') == null) {
+        //     localStorage.setItem('Tasks', '[]')
+        // }
+        // let old_data = JSON.parse(localStorage.getItem('Tasks'))
+        // old_data.push(userTask)
+        // localStorage.setItem('Tasks', JSON.stringify(old_data))
+
+        // if (localStorage.getItem('Tasks') == null) {
+        //     localStorage.setItem('Tasks', '[]')
+        // }
+        // let old_data = JSON.parse(localStorage.getItem('Tasks'))
+        // old_data.push(userTask)
+
+        // localStorage.setItem('Tasks', JSON.stringify(old_data))
     }
 
 })
