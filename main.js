@@ -1,6 +1,5 @@
 /* GLOBAL VARIABLES */
 
-
 let userInput = document.querySelector("#user-input")
 let unordrd = document.querySelector("#main-lists__container")
 
@@ -9,8 +8,8 @@ let unordrd = document.querySelector("#main-lists__container")
 
 
 userInput.addEventListener('keydown', () => {
-    let userTasks = []
     if (event.keyCode === 13) {
+
         //creating element at user's input 'enter'
 
         let listItem = document.createElement('li')
@@ -24,7 +23,6 @@ userInput.addEventListener('keydown', () => {
         btnRemove.id = 'remove'
         listBtnItem.id = 'lists-item'
         spanInputValue.id = 'inputValue'
-        btnRemove.className = userInput.value
 
 
         let spnUserText = document.createTextNode(userInput.value)
@@ -46,50 +44,36 @@ userInput.addEventListener('keydown', () => {
             userInput.value = ''
 
         }
-
-        const listsItem = document.querySelectorAll('li')
-
-        listsItem.forEach(function (item) {
-
-            userTasks.push(item)
-        })
-
-        console.log(userTasks)
-        console.log(listsItem)
-        console.log(userTasks)
-        /* local storage*/
-
+        // LOCAL STORAGE
+        let userTask = []
         let date = new Date()
 
-        let month = date.getMonth() + 1
-        let day = date.getDate() + 1
-        let year = date.getFullYear()
-        let minutes = date.getMinutes()
 
-        const dateId = {
-            id: `${month}/${day}/${year} ${minutes}`
+        let year = date.getYear()
+        let month = date.getMonth() + 1
+        let day = date.getDate()
+        let secs = date.getSeconds()
+        let taskId = {
+            created: `${month}/${day}/${year} ${secs}`
         }
 
+        const listsItem = document.querySelectorAll('li')
+        const span = document.querySelectorAll('span')
 
+        span.forEach(function (item) {
+            userTask.push(item.textContent, taskId)
 
-        // localStorage.setItem('Tasks', JSON.stringify(userTasks))
-        //userTasks.push(dateId)
+        })
+        if (localStorage.getItem('Tasks') == null) {
+            localStorage.setItem('Tasks', '[]')
+        }
+        let old_data = JSON.parse(localStorage.getItem('Tasks'))
+        old_data.push(userTask)
+        localStorage.setItem('Tasks', JSON.stringify(old_data))
 
-        //const item = localStorage.setItem('Tasks', JSON.stringify(userTasks))
-        //const dataParsed = JSON.parse(item)
-
-        //localStorage.getItem('Tasks')
-
-        //console.log(userTasks)
-
-        // const parse = JSON.parse(returnValue)
-
-        // localStorage.setItem("tasks", parse)
-        // localStorage.getItem(itemDetail)
-
-
-
-
+        if (listsItem == '') {
+            listsItem.innerHTML = spanInputValue
+        }
     }
 
 })
@@ -106,6 +90,7 @@ userInput.addEventListener('keyup', () => {
         btnRemove.addEventListener('mouseover', () => {
             if (spanInputValue.id === "inputValue") {
                 spanInputValue.style.textDecoration = 'line-through'
+                spanInputValue.style.textDecorationColor = "red"
             }
         })
         /* mouseout event on x button to not display line-through on task */
