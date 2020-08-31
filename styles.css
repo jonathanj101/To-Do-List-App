@@ -89,3 +89,14 @@ li {
   color: white;
   cursor: pointer;
 }
+
+/* media queries 
+@media only screen and (max-width: 768px) {
+  input::placeholder {
+    font-size: 1.5rem;
+  }
+  .title {
+    font-size: 2.5rem;
+  }
+}
+*/
