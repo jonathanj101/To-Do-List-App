@@ -49,14 +49,7 @@ userInput.addEventListener('keydown', () => {
 
 
         // LOCAL STORAGE
-        let userTask = []
-        let date = new Date()
 
-
-        let year = date.getYear()
-        let month = date.getMonth() + 1
-        let day = date.getDate()
-        let secs = date.getSeconds()
         let taskId = {
             created: `${month}/${day}/${year} ${secs}`
         }
@@ -64,31 +57,27 @@ userInput.addEventListener('keydown', () => {
         const listsItem = document.querySelectorAll('li')
         const span = document.querySelectorAll('span')
 
+        let userTask = []
+        const todo = {
+            task: userTask,
+            id: `${month}/${day}/${year} ${secs}`
+        }
         span.forEach(function (item) {
+            let date = new Date()
+
+            let year = date.getYear()
+            let month = date.getMonth() + 1
+            let day = date.getDate()
+            let secs = date.getSeconds()
+
             userTask.push(item.textContent, taskId)
 
         })
-        let task;
 
         localStorage.setItem('Tasks', JSON.stringify(userTask))
         task = JSON.parse(localStorage.getItem('Tasks'))
 
         console.log(typeof (task))
-
-        // if (localStorage.getItem('Tasks') == null) {
-        //     localStorage.setItem('Tasks', '[]')
-        // }
-        // let old_data = JSON.parse(localStorage.getItem('Tasks'))
-        // old_data.push(userTask)
-        // localStorage.setItem('Tasks', JSON.stringify(old_data))
-
-        // if (localStorage.getItem('Tasks') == null) {
-        //     localStorage.setItem('Tasks', '[]')
-        // }
-        // let old_data = JSON.parse(localStorage.getItem('Tasks'))
-        // old_data.push(userTask)
-
-        // localStorage.setItem('Tasks', JSON.stringify(old_data))
     }
 
 })
