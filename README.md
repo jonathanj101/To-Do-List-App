@@ -4,7 +4,7 @@ Simple Vanilla JS To-Do-List App
 
 [Want to Try?](https://jonathanj101.github.io/To-Do-List-App-main.html/)
 
-![](/images/preview.png)
+![](/image/preview.png)
 
 # Summary
 
