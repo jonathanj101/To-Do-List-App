@@ -5,13 +5,11 @@ body {
   padding: 0;
   font-family: "Bangers", cursive;
 }
-/*  Main container  */
+
 #main-container {
   width: 50%;
   margin: 5% auto;
 }
-
-/* title container and title */
 
 .to-do__title {
   width: 100%;
@@ -23,9 +21,6 @@ body {
   font-size: 3.5rem;
 }
 
-/* INPUT CONTAINER
-    USER INPUT TAG
-*/
 .input-container {
   height: auto;
   width: 50%;
@@ -40,11 +35,6 @@ body {
   border: 1px solid black;
   border-radius: 15px;
 }
-
-/* TO-DO LISTS MAIN CONTAINER
-    LISTS CONTAINER
-    LISTS ITEMS
-*/
 
 #to-do__lists-container {
   width: 100%;
@@ -89,14 +79,3 @@ li {
   color: white;
   cursor: pointer;
 }
-
-/* media queries 
-@media only screen and (max-width: 768px) {
-  input::placeholder {
-    font-size: 1.5rem;
-  }
-  .title {
-    font-size: 2.5rem;
-  }
-}
-*/

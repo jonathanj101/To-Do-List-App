@@ -65,10 +65,10 @@ function getFromLocalStorage() {
 function deleteTask(btnRemove, spanInputValue) {
     btnRemove.addEventListener('click', (e) => {
         e.target.parentElement.remove()
-        let x = userTask.filter(selectedTask => {
+        let currentTask = userTask.filter(selectedTask => {
             return selectedTask !== spanInputValue
         })
-        userTask = x
+        userTask = currentTask
         addToLocalStorage(userTask)
     })
     btnRemove.addEventListener('mouseover', () => {

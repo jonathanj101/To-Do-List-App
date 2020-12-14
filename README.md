@@ -12,4 +12,4 @@ As the name suggest it, To-Do-List for those tends to have a big important agend
 
 # Author
 
-**Jonathan Jimenez** - Aspiring Full Stack Developer - [LinkedIn](https://www.linkedin.com/in/jonathan-jimenez101/) | [Codepen](https://codepen.io/jonathanj101/)
+**Jonathan Jimenez** - Aspiring Full Stack Developer - [LinkedIn](https://www.linkedin.com/in/jonathan-jimenez101/) | [Website](https://jonathan-jimenez.herokuapp.com/)
